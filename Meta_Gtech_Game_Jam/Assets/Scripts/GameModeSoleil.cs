@@ -12,19 +12,20 @@ public class GameModeSoleil : MonoBehaviour
     private Coroutine soundCoroutine;
     private bool playerMove;
 
-    private int soundIndex = 0; 
-    private float nextPlayTime = 0f; 
-    public bool thirdSoundPlayed = false;
-    private float thirdSoundTime = 0f;
-    public float globalSpeed = 1f;
+    public bool thirdSoundPlayed = false; // Devient vrai après le 3ème son
+    private float thirdSoundTime = 0f; // Temps pour réinitialiser `thirdSoundPlayed`
 
-    private bool isPlayingSound;
+    private int currenTime = 2;
+    public float globalSpeed = 2f;
+
+    private int soundIndex = 0;
+    private bool isPlayingSound = false;
     void Start()
     {
         soundManager = GetComponent<SoundManager>();
         audioSource = GetComponent<AudioSource>();
         StartCoroutineAction();
-        nextPlayTime = Time.time;
+        PlaySound();
     }
     private void Update()
     {
@@ -62,43 +63,40 @@ public class GameModeSoleil : MonoBehaviour
     }
     private void ManageSounds()
     {
-        // Réinitialise la variable `thirdSoundPlayed` après 3 secondes
         if (thirdSoundPlayed && Time.time >= thirdSoundTime + 3f)
         {
             thirdSoundPlayed = false;
         }
 
-        // Vérifie si le son actuel est terminé
         if (!audioSource.isPlaying && isPlayingSound)
         {
-            isPlayingSound = false; // Le son a fini de jouer
-            soundIndex++; // Passe au prochain son
-
+            isPlayingSound = false; 
+            soundIndex++; 
+            if (soundIndex == currenTime) { return; }
             if (soundIndex < audioClip.Count)
             {
-                PlaySound(); // Joue le prochain son
+                PlaySound(); 
             }
         }
     }
 
-    /// <summary>
-    /// Joue le son actuel.
-    /// </summary>
+    public int SetCurrenTime(int time) { return currenTime = time; }
     private void PlaySound()
     {
         if (soundIndex >= audioClip.Count)
-            return; // Si tous les sons ont été joués, arrête
+            return; 
 
         AudioClip currentClip = audioClip[soundIndex];
         audioSource.clip = currentClip;
-        audioSource.pitch = globalSpeed; // Ajuste la vitesse de lecture
+        audioSource.pitch = globalSpeed;
         audioSource.Play();
         isPlayingSound = true;
 
-        if (soundIndex == 2) // Si c'est le 3ème son
+        
+        if (soundIndex == 2)
         {
             thirdSoundPlayed = true;
-            thirdSoundTime = Time.time; // Stocke le temps pour réinitialisation
+            thirdSoundTime = Time.time;
         }
     }
 
