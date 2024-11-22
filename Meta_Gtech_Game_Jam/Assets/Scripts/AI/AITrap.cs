@@ -11,14 +11,14 @@ public class AITrap : MonoBehaviour
     [SerializeField] private float spawnDistanceToPlayer;
     [SerializeField] private int impulseForce;
     
-    private Rigidbody rigibody;
+    private Rigidbody rigidbody;
     
     public delegate void OnPutTrap();
     public static event OnPutTrap OnCanPutTrap;
 
     private void Start()
     {
-        rigibody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
         raycastingDetectionObject = GetComponent<RaycastingDetectionObject>();
         PlaceSingleTrap();
     }
@@ -42,7 +42,7 @@ public class AITrap : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Trap"))
         {
-            rigibody.AddForce(-transform.forward * impulseForce, ForceMode.Impulse);
+            rigidbody.AddForce(-transform.forward * impulseForce, ForceMode.Impulse);
         }
     }
 }
