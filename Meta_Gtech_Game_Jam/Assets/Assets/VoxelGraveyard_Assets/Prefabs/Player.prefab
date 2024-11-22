@@ -421,8 +421,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5684810959500109282}
-  trapAIPrefab: {fileID: 4957825512291673496, guid: 518737435e6326141985eb6e9bd1ff49,
-    type: 3}
+  trapAIPrefab:
+  - {fileID: 4957825512291673496, guid: 518737435e6326141985eb6e9bd1ff49, type: 3}
+  - {fileID: 4043250954716428402, guid: aeedf9427cea55642aab77f4ec9e1ddc, type: 3}
+  - {fileID: 1648115564581506818, guid: 6a717e86600246648ae110ebc1b13f10, type: 3}
   raycastingDetectionObject: {fileID: 8081968565021360498}
   spawnDistanceToPlayer: 8
   impulseForce: 7

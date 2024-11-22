@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private float elapsedTimeTrap;
     private bool canStartGameModeSoleil;
     private bool cooldownTrap;
-    private int maxRandom = 6;
+    private int maxRandom = 5;
     private int random;
     
     public delegate void OnPutTrapOnMap();
@@ -108,9 +108,9 @@ public class GameManager : MonoBehaviour
             palierSound = Random.Range(minPalierObjectifAtteint, minPalier + 1);
         }
 
-        if (maxRandom <= 4)
+        if (maxRandom <= 3)
         {
-            maxRandom = 4;
+            maxRandom = 3;
         }
         palierSound = Mathf.Max(palierSound, minPalier);
     }
