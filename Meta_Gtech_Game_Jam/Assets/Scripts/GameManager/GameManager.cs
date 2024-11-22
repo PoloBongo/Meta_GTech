@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Timer Settings")]
     [SerializeField] private float cooldownAfterModelSoleilExecution;
+    [Header("Settings Game Manager")]
+    [SerializeField] private GameModeSoleil gameModeSoleil;
     private float startTime;
     private float elapsedTime;
     private void Start()
@@ -21,7 +24,6 @@ public class GameManager : MonoBehaviour
         elapsedTime = Time.time - startTime;
         if (elapsedTime >= cooldownAfterModelSoleilExecution)
         {
-            Debug.Log("sa fait 5 secondes");
             elapsedTime = 0f;
             startTime = Time.time;
         }
