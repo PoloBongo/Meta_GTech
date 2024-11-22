@@ -12,6 +12,7 @@ public class PlayerInputs : MonoBehaviour
     public InputActionReference posPressRef;
     private Vector2 mousePosition;
     public Vector2 pressPosition;
+    private bool havePos = false;
 
     static PlayerInputs instance;
 
@@ -50,6 +51,7 @@ public class PlayerInputs : MonoBehaviour
     private void ForwardPerformed(InputAction.CallbackContext context)
     {
         PlayerManager.Instance.GetPlayerMovement().isMovingForward = true;
+        if (!havePos) return;
         pressPosition = mousePosition;
     }
 
@@ -71,5 +73,6 @@ public class PlayerInputs : MonoBehaviour
     private void PressPerformed(InputAction.CallbackContext context)
     {
         mousePosition = context.ReadValue<Vector2>();
+        havePos = true;
     }
 }
