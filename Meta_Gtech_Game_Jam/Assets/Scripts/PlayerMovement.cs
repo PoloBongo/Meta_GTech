@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float playerSpeed = 2f;
     [SerializeField] float leftRightResistance = 50f;
+    public TextMeshProUGUI text1;
+    public TextMeshProUGUI text2;
     public float moveSmoothTime;
     
     public bool isMovingForward = false;
@@ -30,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (isMovingLeftRight && isMovingForward)
         {
+            text1.text = "touchPos : " + PlayerInputs.Instance.pressPosition.x;
+            text2.text = "currentPos : " + PlayerInputs.Instance.leftRightRef.action.ReadValue<Vector2>().x;
             movement.y += PlayerInputs.Instance.leftRightRef.action.ReadValue<Vector2>().x - PlayerInputs.Instance.pressPosition.x ;
             if (Mathf.Abs(movement.y) > leftRightResistance)
             {
