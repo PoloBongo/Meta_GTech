@@ -6,26 +6,21 @@ using UnityEngine;
 public class GameModeSoleil : MonoBehaviour
 {
     [SerializeField] List<AudioClip> audioClip;
+    [SerializeField] LightManager lightManager;
 
-    private SoundManager soundManager;
     private AudioSource audioSource;
-    private Coroutine soundCoroutine;
-    private bool playerMove;
 
-    public bool thirdSoundPlayed = false; // Devient vrai après le 3ème son
-    private float thirdSoundTime = 0f; // Temps pour réinitialiser `thirdSoundPlayed`
+    public bool thirdSoundPlayed = false;
+    private float thirdSoundTime = 0f;
 
-    private int currenTime = 2;
+    private int currenTime = 3;
     public float globalSpeed = 2f;
 
     private int soundIndex = 0;
     private bool isPlayingSound = false;
     void Start()
     {
-        soundManager = GetComponent<SoundManager>();
         audioSource = GetComponent<AudioSource>();
-        StartCoroutineAction();
-        PlaySound();
     }
     private void Update()
     {
@@ -33,34 +28,6 @@ public class GameModeSoleil : MonoBehaviour
         ManageSounds();
     }
 
-    void StartCoroutineAction()
-    {
-        soundCoroutine = null;
-       /*if (soundCoroutine == null) soundCoroutine = StartCoroutine(CoroutineAction(0.5f, 3, 2));*/
-    }
-
-    IEnumerator CoroutineAction(float vitesseDecompt = 1f, int _currentTime = 0,float vitesseson = 1)
-    {
-        int currentTime = 0;
-        playerMove = false;
-        soundManager.SoundPitch(vitesseson, audioClip[currentTime]);
-        currentTime++;
-        if(currentTime == _currentTime) yield break;
-        yield return new WaitForSeconds(vitesseDecompt);
-        soundManager.SoundPitch(vitesseson, audioClip[currentTime]);
-        currentTime++;
-        if (currentTime == _currentTime) yield break;
-        yield return new WaitForSeconds(vitesseDecompt);
-        soundManager.SoundPitch(vitesseson, audioClip[currentTime]);
-        currentTime++;
-        playerMove = true;
-        yield return new WaitForSeconds(vitesseDecompt);
-        soundManager.SoundPitch(vitesseson, audioClip[currentTime]);
-        yield return new WaitForSeconds(3);
-        playerMove = false;
-        print(playerMove);
-        yield break;
-    }
     private void ManageSounds()
     {
         if (thirdSoundPlayed && Time.time >= thirdSoundTime + 3f)
@@ -71,52 +38,42 @@ public class GameModeSoleil : MonoBehaviour
         if (!audioSource.isPlaying && isPlayingSound)
         {
             isPlayingSound = false; 
+            if (soundIndex == currenTime) { soundIndex = 0; return; }
             soundIndex++; 
-            if (soundIndex == currenTime) { return; }
             if (soundIndex < audioClip.Count)
             {
-                PlaySound(); 
+                PlaySound();
             }
         }
     }
 
     public int SetCurrenTime(int time) { return currenTime = time; }
-    private void PlaySound()
+    public void PlaySound()
     {
         if (soundIndex >= audioClip.Count)
             return; 
-
+        print(soundIndex);
         AudioClip currentClip = audioClip[soundIndex];
         audioSource.clip = currentClip;
         audioSource.pitch = globalSpeed;
         audioSource.Play();
         isPlayingSound = true;
-
         
         if (soundIndex == 2)
         {
             thirdSoundPlayed = true;
             thirdSoundTime = Time.time;
         }
-    }
-
-    public void DodgeCountdown(float _vitesseDecompte)
-    {
-        soundCoroutine = null;
-        if (soundCoroutine == null) soundCoroutine = StartCoroutine(CoroutineAction(_vitesseDecompte, 2));
-    }
-
-    /*public bool DecompteEnd()
-    {
-        if (currentTime <= 0)
+        if(soundIndex < 3)
         {
-            return true;
+             lightManager.BlinkAllLights();
         }
-        return false;
-    }*/
-
-    public void UpdateTextDecompte()
-    {
-        /*Debug.Log((int) currentTime);*/
+        else
+        {
+            lightManager.TurnOffAllLights();
+            soundIndex = 0;
+            isPlayingSound = false;
+        }
     }
+
 }
