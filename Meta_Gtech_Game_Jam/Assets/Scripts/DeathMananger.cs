@@ -20,12 +20,12 @@ public class DeathMananger : MonoBehaviour
     }
     private void Update()
     {
-        if (!gameMode.IsThirdSoundPlayed()) return;
+        if (!gameMode.IsFourthSoundPlayed()) return;
         Verify();
     }
     public void Verify()
     {
-        if(rb.velocity.magnitude >= 1 && gameMode.IsThirdSoundPlayed())
+        if(rb.velocity.magnitude >= 1 && gameMode.IsFourthSoundPlayed())
         {
             //lost
             playerManager.isDead = true;

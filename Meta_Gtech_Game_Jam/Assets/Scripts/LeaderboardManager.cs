@@ -17,7 +17,8 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Start()
     {
-        LoadEntries();
+        //LoadEntries();
+        _usernameInputField.characterLimit = 7;
     }
 
     public void LoadEntries()

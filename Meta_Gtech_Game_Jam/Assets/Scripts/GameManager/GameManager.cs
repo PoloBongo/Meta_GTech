@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        //audioSource.clip = audioClip;
+        audioSource.clip = audioClip;
         audioSource.Play();
         audioSource.loop = true;
 
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CooldownAfterModelSoleilExecution();
-        if (gameModeSoleil.IsThirdSoundPlayed())
+        if (gameModeSoleil.IsFourthSoundPlayed())
         {
             audioSource.Pause();
         }

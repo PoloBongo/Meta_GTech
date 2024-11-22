@@ -6,7 +6,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    public Slider volumeSlider;
     private float currentVolume = 1f;
 
     private void Awake()

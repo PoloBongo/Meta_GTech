@@ -10,9 +10,9 @@ public class GameModeSoleil : MonoBehaviour
 
     private AudioSource audioSource;
 
-    public bool thirdSoundPlayed = false;
+    public bool fourthSoundPlayed = false;
     private bool antiSpamLightOn = false;
-    private float thirdSoundTime = 0f;
+    private float fourthSoundTime = 0f;
 
     private int currentTime = 3;
     public float globalSpeed = 2f;
@@ -31,9 +31,9 @@ public class GameModeSoleil : MonoBehaviour
 
     private void ManageSounds()
     {
-        if (thirdSoundPlayed && Time.time >= thirdSoundTime + 3f)
+        if (fourthSoundPlayed && Time.time >= fourthSoundTime + Random.Range(3f, 8f))
         {
-            thirdSoundPlayed = false;
+            fourthSoundPlayed = false;
             antiSpamLightOn = false;
         }
 
@@ -48,7 +48,7 @@ public class GameModeSoleil : MonoBehaviour
             }
         }
 
-        if (!thirdSoundPlayed && !antiSpamLightOn)
+        if (!fourthSoundPlayed && !antiSpamLightOn)
         {
             lightManager.TurnOnAllLights();
             antiSpamLightOn = true;
@@ -66,23 +66,21 @@ public class GameModeSoleil : MonoBehaviour
         audioSource.pitch = globalSpeed;
         audioSource.Play();
         isPlayingSound = true;
-        
-        if (soundIndex == 2)
-        {
-            thirdSoundPlayed = true;
-            thirdSoundTime = Time.time;
-        }
         if(soundIndex < 3)
         {
              lightManager.BlinkAllLights();
         }
         else
         {
+            fourthSoundPlayed = true;
+            fourthSoundTime = Time.time;
             lightManager.TurnOffAllLights();
             soundIndex = 0;
             isPlayingSound = false;
         }
     }
 
-    public bool IsThirdSoundPlayed() { return thirdSoundPlayed; }
+    public bool IsFourthSoundPlayed() { return fourthSoundPlayed; }
+    
+    public bool GetIsPlayingSound() { return isPlayingSound; }
 }

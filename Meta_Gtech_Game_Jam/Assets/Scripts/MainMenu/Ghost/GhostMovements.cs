@@ -100,13 +100,13 @@ public class GhostMovements : MonoBehaviour
     this.initialPosition = targetPosition;
         if (targetPosition != initialPosition2)
         {
-            backButton.gameObject.SetActive(true);
+            if (backButton) backButton.gameObject.SetActive(true);
             FindObjectOfType<LeadboardCanvas>().MoveImageDown(0f);
         }
         else
         {
-            mainMenuCanva.SetActive(true);
-            buttonsManager1.leaderboardIsPressed = false;
+            if (mainMenuCanva) mainMenuCanva.SetActive(true);
+            if (buttonsManager1) buttonsManager1.leaderboardIsPressed = false;
             
         }
         

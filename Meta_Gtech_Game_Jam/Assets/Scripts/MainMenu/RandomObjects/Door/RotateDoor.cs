@@ -6,10 +6,10 @@ public class RotateDoor : MonoBehaviour
 {
     [SerializeField] private float rotation;
     [SerializeField] private float duration;
-
+    private Coroutine coroutine;
     public void RotateDoorSetup()
     {
-            StartCoroutine(RotateOverTime(rotation, duration));
+        if (coroutine == null) coroutine = StartCoroutine(RotateOverTime(rotation, duration));
 
     }
 
@@ -17,7 +17,7 @@ public class RotateDoor : MonoBehaviour
     {
         float elapsedTime = 0f;
 
-        Quaternion initialRotation = transform.rotation; // Rotation de départ
+        Quaternion initialRotation = transform.rotation; // Rotation de dï¿½part
         Quaternion targetRotation = initialRotation * Quaternion.Euler(0f, rotation, 0f); // Rotation cible
 
         while (elapsedTime < duration)
@@ -25,12 +25,12 @@ public class RotateDoor : MonoBehaviour
             // Interpolation entre la rotation initiale et la cible
             transform.rotation = Quaternion.Lerp(initialRotation, targetRotation, elapsedTime / duration);
 
-            elapsedTime += Time.deltaTime; // Temps écoulé
+            elapsedTime += Time.deltaTime; // Temps ï¿½coulï¿½
             yield return null; // Attendre la frame suivante
         }
 
         // Assurer la rotation finale
         transform.rotation = targetRotation;
-
+        coroutine = null;
     }
 }
