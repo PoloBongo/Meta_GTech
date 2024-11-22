@@ -12,7 +12,6 @@ public class PlayerInputs : MonoBehaviour
     public InputActionReference posPressRef;
     private Vector2 mousePosition;
     public Vector2 pressPosition;
-    private bool havePos = false;
 
     static PlayerInputs instance;
 
@@ -27,31 +26,30 @@ public class PlayerInputs : MonoBehaviour
     }
     private void Awake()
     {
+        posPressRef.action.performed += PressPerformed;
         forwardRef.action.performed += ForwardPerformed;
         forwardRef.action.canceled += ForwardCanceled;
         leftRightRef.action.performed += LeftRightPerformed;
         leftRightRef.action.canceled += LeftRightCanceled;
-        posPressRef.action.performed += PressPerformed;
     }
 
     private void OnEnable()
     {
+        posPressRef.action.Enable();
         forwardRef.action.Enable();
         leftRightRef.action.Enable();
-        posPressRef.action.Enable();
     }
 
     private void OnDisable()
     {
+        posPressRef.action.Disable();
         forwardRef.action.Disable();
         leftRightRef.action.Disable();
-        posPressRef.action.Disable();
     }
 
     private void ForwardPerformed(InputAction.CallbackContext context)
     {
         PlayerManager.Instance.GetPlayerMovement().isMovingForward = true;
-        if (!havePos) return;
         pressPosition = mousePosition;
     }
 
@@ -73,6 +71,5 @@ public class PlayerInputs : MonoBehaviour
     private void PressPerformed(InputAction.CallbackContext context)
     {
         mousePosition = context.ReadValue<Vector2>();
-        havePos = true;
     }
 }
