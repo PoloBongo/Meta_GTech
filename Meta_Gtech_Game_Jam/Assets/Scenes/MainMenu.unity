@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 188423455}
   - component: {fileID: 188423454}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: thirdDistance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2054,7 +2054,7 @@ GameObject:
   - component: {fileID: 416409243}
   - component: {fileID: 416409242}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: firstDistance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2308,9 +2308,44 @@ PrefabInstance:
       objectReference: {fileID: 150368912}
     - target: {fileID: 7357631689367647169, guid: 0bf95f88873bd734babab845a8c18059,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357631689367647169, guid: 0bf95f88873bd734babab845a8c18059,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357631689367647169, guid: 0bf95f88873bd734babab845a8c18059,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 150368912}
+    - target: {fileID: 7357631689367647169, guid: 0bf95f88873bd734babab845a8c18059,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 435216851}
+    - target: {fileID: 7357631689367647169, guid: 0bf95f88873bd734babab845a8c18059,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357631689367647169, guid: 0bf95f88873bd734babab845a8c18059,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadEntries
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357631689367647169, guid: 0bf95f88873bd734babab845a8c18059,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LeaderboardManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357631689367647169, guid: 0bf95f88873bd734babab845a8c18059,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8982920304722038149, guid: 0bf95f88873bd734babab845a8c18059,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2337,8 +2372,42 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 378495902}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7937283979935382119, guid: 0bf95f88873bd734babab845a8c18059,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 435216851}
   m_SourcePrefab: {fileID: 100100000, guid: 0bf95f88873bd734babab845a8c18059, type: 3}
+--- !u!1 &435216850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7937283979935382119, guid: 0bf95f88873bd734babab845a8c18059,
+    type: 3}
+  m_PrefabInstance: {fileID: 435216849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &435216851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435216850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9142c500737563c4f8aca20a1fa5a07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entryTextObjects:
+  - {fileID: 806706782}
+  - {fileID: 1673293979}
+  - {fileID: 416409242}
+  - {fileID: 816699498}
+  - {fileID: 1959701952}
+  - {fileID: 463817386}
+  - {fileID: 831467708}
+  - {fileID: 1167024047}
+  - {fileID: 188423454}
+  _usernameInputField: {fileID: 0}
+  _distance: {fileID: 0}
 --- !u!1 &463817384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,7 +2420,7 @@ GameObject:
   - component: {fileID: 463817387}
   - component: {fileID: 463817386}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: secondDistance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3604,7 +3673,7 @@ GameObject:
   - component: {fileID: 806706783}
   - component: {fileID: 806706782}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: firstRank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3739,7 +3808,7 @@ GameObject:
   - component: {fileID: 816699499}
   - component: {fileID: 816699498}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: secondRank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3874,7 +3943,7 @@ GameObject:
   - component: {fileID: 831467709}
   - component: {fileID: 831467708}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: thirdRank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5305,7 +5374,7 @@ GameObject:
   - component: {fileID: 1167024048}
   - component: {fileID: 1167024047}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: thirdName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7281,7 +7350,7 @@ GameObject:
   - component: {fileID: 1673293980}
   - component: {fileID: 1673293979}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: firstName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8497,7 +8566,7 @@ GameObject:
   - component: {fileID: 1959701953}
   - component: {fileID: 1959701952}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: secondName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
