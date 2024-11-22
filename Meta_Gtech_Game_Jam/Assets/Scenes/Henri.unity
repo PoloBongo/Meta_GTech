@@ -983,12 +983,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2101930234}
   chunkPrefabs:
-  - {fileID: 856684056532367610, guid: 3aea98d14b0d9d646870da99bd149a61, type: 3}
-  - {fileID: 41591734355472070, guid: 5fd274e57097a9047938c1f28e3b5e52, type: 3}
-  - {fileID: 41591734355472070, guid: fcd060d922bb3f44587a01eb0f5b1fb2, type: 3}
-  - {fileID: 856684056532367610, guid: a2641deb178d8af4a9a2279e5a1894c3, type: 3}
-  - {fileID: 856684056532367610, guid: bde3bd1020ca6ef4696dd345ab3b3eaa, type: 3}
-  - {fileID: 856684056532367610, guid: cfde6f57d88470645bceed2ad22cc1dd, type: 3}
+  - {fileID: 4392453487415030726, guid: 3aea98d14b0d9d646870da99bd149a61, type: 3}
+  - {fileID: 4478898479056693552, guid: 0c0238abea9387541ae728d3518e1755, type: 3}
+  - {fileID: 1894912226418788558, guid: 4a25c255609bc1045ac2881177db98f9, type: 3}
+  - {fileID: 8472191162206535449, guid: f7f644f1141ef954d9bbc24c17b1ca63, type: 3}
+  - {fileID: 1070251631541391710, guid: b0cb614bba4c1424dba64f930b188785, type: 3}
+  - {fileID: 962291351992958024, guid: 48d51d63f2765464ca8cca49badb26cb, type: 3}
   chunksList: []
 --- !u!114 &2050811400
 MonoBehaviour:
