@@ -8,11 +8,17 @@ namespace Map
     public class ChunkHandler : MonoBehaviour
     {
         [SerializeField] private GameObject player;
-        [SerializeField] private GameObject[] chunkPrefabs;
-        
-        public List<GameObject> chunksList = new List<GameObject>();
+        [SerializeField] public GameObject[] chunkPrefabsMain;
+        [SerializeField] public GameObject[] chunkPrefabsBorderR;
+        [SerializeField] public GameObject[] chunkPrefabsBorderL;
+
+        public List<GameObject> chunksListMain = new List<GameObject>();
+        public List<GameObject> chunksListBorderR = new List<GameObject>();
+        public List<GameObject> chunksListBorderL = new List<GameObject>();
         private const int ChunkAmount = 10;
-        private List<int> availablePrefabIndices = new List<int>();
+        public List<int> availablePrefabIndicesMain = new List<int>();
+        public List<int> availablePrefabIndicesBorderR = new List<int>();
+        public List<int> availablePrefabIndicesBorderL = new List<int>();
 
         void Start()
         {
@@ -21,58 +27,110 @@ namespace Map
 
         private void SetupChunks()
         {
-            chunksList.Clear();
-            availablePrefabIndices = Enumerable.Range(0, chunkPrefabs.Length).ToList();
-            ShuffleIndices();
+            chunksListMain.Clear();
+            chunksListBorderR.Clear();
+            chunksListBorderL.Clear();
+
+            availablePrefabIndicesMain = Enumerable.Range(0, chunkPrefabsMain.Length).ToList();
+            availablePrefabIndicesBorderR = Enumerable.Range(0, chunkPrefabsBorderR.Length).ToList();
+            availablePrefabIndicesBorderL = Enumerable.Range(0, chunkPrefabsBorderL.Length).ToList();
+
+            availablePrefabIndicesMain = ShuffleIndices(availablePrefabIndicesMain);
+            availablePrefabIndicesBorderR = ShuffleIndices(availablePrefabIndicesBorderR);
+            availablePrefabIndicesBorderL = ShuffleIndices(availablePrefabIndicesBorderL);
 
             for (int i = 0; i < ChunkAmount; i++)
             {
-                GameObject chunk = Instantiate(chunkPrefabs[GetRandomPrefabIndex()], transform);
-                chunksList.Add(chunk);
+                GameObject chunk = Instantiate(GetRandomPrefabForSide("Main"), transform);
+                chunksListMain.Add(chunk);
+                chunk.SetActive(false);
+
+                chunk = Instantiate(GetRandomPrefabForSide("Right"), transform);
+                chunksListBorderR.Add(chunk);
+                chunk.SetActive(false);
+
+                chunk = Instantiate(GetRandomPrefabForSide("Left"), transform);
+                chunksListBorderL.Add(chunk);
                 chunk.SetActive(false);
             }
+            
         }
 
-        private int GetRandomPrefabIndex()
+        private int GetRandomPrefabIndex(List<int> availableIndices, GameObject[] chunkPrefabs)
         {
-            if (availablePrefabIndices.Count == 0)
+            // Refill the available indices if empty
+            if (availableIndices.Count == 0)
             {
-                availablePrefabIndices = Enumerable.Range(0, chunkPrefabs.Length).ToList();
-                ShuffleIndices();
+                availableIndices = Enumerable.Range(0, chunkPrefabs.Length).ToList();
+                availableIndices = ShuffleIndices(availableIndices);
             }
 
-            int randomIndex = availablePrefabIndices[0];
-            availablePrefabIndices.RemoveAt(0);
+            int randomIndex = availableIndices[0];
+            availableIndices.RemoveAt(0);
             return randomIndex;
         }
 
-        private void ShuffleIndices()
+        private GameObject GetRandomPrefabForSide(string side)
         {
-            for (int i = 0; i < availablePrefabIndices.Count; i++)
+            GameObject chunkPrefab = null;
+
+            switch (side)
             {
-                int temp = availablePrefabIndices[i];
-                int randomIndex = Random.Range(i, availablePrefabIndices.Count);
-                availablePrefabIndices[i] = availablePrefabIndices[randomIndex];
-                availablePrefabIndices[randomIndex] = temp;
+                case "Main":
+                    int mainIndex = GetRandomPrefabIndex(availablePrefabIndicesMain, chunkPrefabsMain);
+                    if (mainIndex == -1) return null;  // Handle error
+                    chunkPrefab = chunkPrefabsMain[mainIndex];
+                    break;
+                case "Right":
+                    int rightIndex = GetRandomPrefabIndex(availablePrefabIndicesBorderR, chunkPrefabsBorderR);
+                    if (rightIndex == -1) return null;  // Handle error
+                    chunkPrefab = chunkPrefabsBorderR[rightIndex];
+                    break;
+                case "Left":
+                    int leftIndex = GetRandomPrefabIndex(availablePrefabIndicesBorderL, chunkPrefabsBorderL);
+                    if (leftIndex == -1) return null;  // Handle error
+                    chunkPrefab = chunkPrefabsBorderL[leftIndex];
+                    break;
             }
+
+            return chunkPrefab;
         }
 
-        public GameObject GetAvailableChunk()
+        private List<int> ShuffleIndices(List<int> availableIndices)
         {
-            foreach (var chunk in chunksList)
+            if (availableIndices.Count == 0)
             {
-                if (chunk.activeInHierarchy) continue;
-                return chunk;
+                Debug.Log("No available indices to shuffle");
+                return availableIndices;
+            }
+            
+            for (int i = 0; i < availableIndices.Count; i++)
+            {
+                int temp = availableIndices[i];
+                int randomIndex = Random.Range(i, availableIndices.Count);
+                availableIndices[i] = availableIndices[randomIndex];
+                availableIndices[randomIndex] = temp;
+            }
+            return availableIndices;
+        }
+
+        public GameObject GetAvailableChunk(GameObject[] chunkPrefab, List<GameObject> chunkList, List<int> availableIndices)
+        {
+            // Check for inactive chunks in the list
+            foreach (var chunk in chunkList)
+            {
+                if (!chunk.activeInHierarchy) return chunk;
             }
 
+            // If all chunks are active, instantiate a new one
             for (int i = 0; i < ChunkAmount; i++)
             {
-                GameObject chunk = Instantiate(chunkPrefabs[GetRandomPrefabIndex()], transform);
-                chunksList.Add(chunk);
+                GameObject chunk = Instantiate(chunkPrefab[GetRandomPrefabIndex(availableIndices, chunkPrefab)], transform);
+                chunkList.Add(chunk);
                 chunk.SetActive(false);
             }
 
-            return chunksList.Last();
+            return chunkList.Last();
         }
     }
 }
