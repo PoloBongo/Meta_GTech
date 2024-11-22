@@ -340,7 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motionGameObject: {fileID: 7904984037060728180}
   startPositionY: -3
-  endPositionY: 1.5
+  endPositionY: -1.5
 --- !u!1 &2713850191178162290
 GameObject:
   m_ObjectHideFlags: 0
