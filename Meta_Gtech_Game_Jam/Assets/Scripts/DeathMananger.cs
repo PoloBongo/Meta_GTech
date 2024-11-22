@@ -6,6 +6,8 @@ public class DeathMananger : MonoBehaviour
 {
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private GameModeSoleil gameMode;
+    [SerializeField] private PlayerDistance playerDistance;
+    [SerializeField] private Sauvegarde sauvegarde;
     Rigidbody rb;
 
     private void Start()
@@ -20,7 +22,8 @@ public class DeathMananger : MonoBehaviour
     {
         if(rb.velocity.magnitude >= 0 &&  gameMode.IsThirdSoundPlayed())
         {
-            print("coucou");
+            sauvegarde.SaveScore(playerDistance.GetDistance());
+            print("score save"+sauvegarde.LoadScore());
         }
     }
 }
