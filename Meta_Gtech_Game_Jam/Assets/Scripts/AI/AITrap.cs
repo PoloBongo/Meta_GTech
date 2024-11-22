@@ -31,7 +31,6 @@ public class AITrap : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Trap"))
         {
-            Debug.Log(other.gameObject.name);
             rigibody.AddForce(-transform.forward * impulseForce, ForceMode.Impulse);
         }
     }
