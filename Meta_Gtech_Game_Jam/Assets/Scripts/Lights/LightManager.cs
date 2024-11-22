@@ -45,7 +45,7 @@ public class LightManager : MonoBehaviour
         return lights;
     }
 
-    public void SetLightIntensity(float directionalIntensity, float lightIntensity)
+    public void SetLightIntensity(float directionalIntensity, float lightIntensity, bool state)
     {
         GetAllLights();
 
@@ -57,6 +57,9 @@ public class LightManager : MonoBehaviour
             }
             else
             {
+                ParticleSystem particleSystem = l.GetComponentInParent<ParticleSystem>();
+                particleSystem = l.GetComponentInParent<ParticleSystem>(true);
+                if (particleSystem) particleSystem.gameObject.SetActive(state);
                 l.intensity = lightIntensity;
             }
         }
@@ -65,13 +68,13 @@ public class LightManager : MonoBehaviour
     public void TurnOffAllLights()
     {
         SetStateLight(false);
-        SetLightIntensity(0, 0);
+        SetLightIntensity(0, 0, false);
     }
 
     public void TurnOnAllLights()
     {
         SetStateLight(true);
-        SetLightIntensity(0.1f, 40);
+        SetLightIntensity(0.1f, 40, true);
     }
 
     public bool GetStateLight()
