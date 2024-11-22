@@ -6,15 +6,6 @@
             "id": "1ff646ad-1288-41f6-9b85-5a15c467ede4",
             "actions": [
                 {
-                    "name": "TouchInput",
-                    "type": "Button",
-                    "id": "d642c606-f859-4ec2-9d11-fc1e54a7cb9f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "LeftRight",
                     "type": "Value",
                     "id": "dd71b843-991a-4e09-a8d7-cfd926380573",
@@ -31,31 +22,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TouchInput",
+                    "type": "Button",
+                    "id": "d642c606-f859-4ec2-9d11-fc1e54a7cb9f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.1)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "92dc508e-b04a-4ac2-ab50-47086d322be0",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TouchInput",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8f8d6d85-6abb-4371-a5fd-da35f39a7e6f",
-                    "path": "<Touchscreen>/primaryTouch/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TouchInput",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "c846597c-1957-44ee-9e60-082bc886b7f4",
@@ -81,7 +59,7 @@
                 {
                     "name": "",
                     "id": "5a639b0e-fd96-4bbd-aef5-e0ec5319619f",
-                    "path": "<Touchscreen>/position",
+                    "path": "<Touchscreen>/touch0/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -97,6 +75,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "TouchStartPos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92dc508e-b04a-4ac2-ab50-47086d322be0",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f8d6d85-6abb-4371-a5fd-da35f39a7e6f",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchInput",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
