@@ -9,7 +9,6 @@ public class GameModeSoleil : MonoBehaviour
     [SerializeField] LightManager lightManager;
 
     private AudioSource audioSource;
-    private Coroutine coroutineSoleil;
 
     public bool thirdSoundPlayed = false;
     private bool antiSpamLightOn = false;
@@ -84,4 +83,5 @@ public class GameModeSoleil : MonoBehaviour
             isPlayingSound = false;
         }
     }
+
 }
