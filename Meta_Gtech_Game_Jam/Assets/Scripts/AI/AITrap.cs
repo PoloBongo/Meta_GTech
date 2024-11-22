@@ -10,6 +10,9 @@ public class AITrap : MonoBehaviour
     [SerializeField] private float spawnDistanceToPlayer;
     [SerializeField] private int impulseForce;
     private Rigidbody rigibody;
+    
+    public delegate void OnPutTrap();
+    public static event OnPutTrap OnCanPutTrap;
 
     private void Start()
     {
@@ -19,6 +22,8 @@ public class AITrap : MonoBehaviour
 
     private void PlaceSingleTrap()
     {
+        OnCanPutTrap?.Invoke();
+        
         Vector3 playerPos = player.transform.position;
         Vector3 playerDirection = player.transform.forward;
         float spawnDistance = spawnDistanceToPlayer;
