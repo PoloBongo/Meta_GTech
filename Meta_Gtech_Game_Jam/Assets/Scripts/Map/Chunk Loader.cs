@@ -12,7 +12,7 @@ public class ChunkLoader : MonoBehaviour
     public List<GameObject> chunksListMain = new List<GameObject>();
     public List<GameObject> chunksListBorderR = new List<GameObject>();
     public List<GameObject> chunksListBorderL = new List<GameObject>();
-    
+
     public int chunkSize = 15;
     private int renderDistance = 5;
     private int spawnOriginY = 0;
@@ -21,6 +21,18 @@ public class ChunkLoader : MonoBehaviour
     {
         chunkHandler = GetComponent<ChunkHandler>();
 
+        initFirstChunks();
+    }
+
+    void Update()
+    {
+        LoadChunks(true, false, false);
+        LoadChunks(false, true, false);
+        LoadChunks(false, false, true);
+    }
+
+    private void initFirstChunks()
+    {
         if (chunkHandler.chunksListMain.Count > 0 && chunkHandler.chunksListBorderR.Count > 0 && chunkHandler.chunksListBorderL.Count > 0)
         {
             for (int i = 0; i < renderDistance; i++)
@@ -42,14 +54,7 @@ public class ChunkLoader : MonoBehaviour
             }
         }
     }
-
-    void Update()
-    {
-        LoadChunks(true, false, false);
-        LoadChunks(false, true, false);
-        LoadChunks(false, false, true);
-    }
-
+    
     private void LoadChunks(bool main, bool right, bool left)
     {
         if (main)
@@ -84,6 +89,7 @@ public class ChunkLoader : MonoBehaviour
         {
             firstChunk.SetActive(false);
             chunksListMain.Remove(firstChunk);
+            chunkHandler.ResetChunks("Main", firstChunk);
         }
     }
     
@@ -105,6 +111,7 @@ public class ChunkLoader : MonoBehaviour
         {
             firstChunk.SetActive(false);
             chunksListBorderR.Remove(firstChunk);
+            chunkHandler.ResetChunks("Right", firstChunk);
         }
     }
     
@@ -126,6 +133,7 @@ public class ChunkLoader : MonoBehaviour
         {
             firstChunk.SetActive(false);
             chunksListBorderL.Remove(firstChunk);
+            chunkHandler.ResetChunks("Left", firstChunk);
         }
     }
 }
