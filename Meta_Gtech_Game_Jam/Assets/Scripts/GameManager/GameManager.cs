@@ -24,9 +24,17 @@ public class GameManager : MonoBehaviour
     
     public delegate void OnPutTrapOnMap();
     public static event OnPutTrapOnMap OnCanPutTrapOnMap;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private DeathMananger deathMananger;
     
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        //audioSource.clip = audioClip;
+        audioSource.Play();
+        audioSource.loop = true;
+
         canStartGameModeSoleil = false;
         cooldownTrap = false;
         startTime = Time.time;
@@ -37,11 +45,21 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CooldownAfterModelSoleilExecution();
+        if (gameModeSoleil.IsThirdSoundPlayed())
+        {
+            audioSource.Pause();
+        }
+        else
+        {
+            audioSource.UnPause();
+        }
+        deathMananger.Verrify();
     }
 
     private void FixedUpdate()
     {
         ReturnActualPalier();
+        
     }
 
     private void CooldownAfterModelSoleilExecution()
