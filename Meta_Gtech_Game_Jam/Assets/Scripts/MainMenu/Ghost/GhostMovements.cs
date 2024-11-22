@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GhostMovements : MonoBehaviour
 {
     [SerializeField] private float floatAmplitude = 0.5f; //Max amplitude
     [SerializeField] private float floatSpeed = 2f;       // Floating speed
+    [SerializeField] private Button backButton;       // Floating speed
+    [SerializeField] private GameObject mainMenuCanva;
+    [SerializeField] private ButtonsManager1 buttonsManager1;
 
-  
+
     private Vector3 initialPosition;
+    private Vector3 initialPosition2;
 
     private void Start()
     {
         // Initial position
         initialPosition = transform.position;
+        initialPosition2 = transform.position;
     }
 
     private void Update()
@@ -92,7 +98,17 @@ public class GhostMovements : MonoBehaviour
 
     // Update the initial position for floating effect
     this.initialPosition = targetPosition;
-
-    FindObjectOfType<LeadboardCanvas>().MoveImageDown();
+        if (targetPosition != initialPosition2)
+        {
+            backButton.gameObject.SetActive(true);
+            FindObjectOfType<LeadboardCanvas>().MoveImageDown(0f);
+        }
+        else
+        {
+            mainMenuCanva.SetActive(true);
+            buttonsManager1.leaderboardIsPressed = false;
+            
+        }
+        
 }
 }

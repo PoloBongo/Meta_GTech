@@ -2,11 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class ButtonsManager1 : MonoBehaviour
 {
     [SerializeField] LeaderboardStart leaderboardStart;
-    private bool isPressed = false;
+    [SerializeField] GameObject mainMenuCanva;
+    [SerializeField] private CanvaFadeController mainMenuCanvas;
+    [SerializeField] private Button backButton;      
 
+    public bool leaderboardIsPressed = false;
+
+    private void Start()
+    {
+        backButton.gameObject.SetActive(false);
+        mainMenuCanva.SetActive(true);
+    }
     /// <summary>
     /// Switch to game scene
     /// </summary>
@@ -27,7 +37,22 @@ public class ButtonsManager1 : MonoBehaviour
     /// </summary>
     public void Leaderboard()
     {
-
-        leaderboardStart.setupLeaderboard();
+        if (!leaderboardIsPressed)
+        {
+            leaderboardIsPressed = true;
+            mainMenuCanvas.FadeOutAndDisable();
+            leaderboardStart.setupLeaderboard();
+        }
     }
+
+    /// <summary>
+    /// Go back to menu
+    /// </summary>
+    public void BackToMenu()
+    {
+        leaderboardStart.setupMenu();
+        backButton.gameObject.SetActive(false);
+        
+    }
+
 }

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameButtonManager : MonoBehaviour
 {
     [SerializeField] private MenuDisplay menuDisplay;
+    [SerializeField] private ButtonsManager1 buttonsManager1;
+
 
     public void ResumeGame()
     {
@@ -21,4 +23,5 @@ public class GameButtonManager : MonoBehaviour
         Debug.Log("Quitting game...");
         SceneManager.LoadScene("MainMenu");
     }
+    
 }
