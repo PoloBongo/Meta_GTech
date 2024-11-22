@@ -29,6 +29,7 @@ public class PlayerEffect : MonoBehaviour
     {
         transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY |
                                                           RigidbodyConstraints.FreezeRotationX |
+                                                          RigidbodyConstraints.FreezeRotationY |
                                                           RigidbodyConstraints.FreezeRotationZ;
     }
     
