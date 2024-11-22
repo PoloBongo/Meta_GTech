@@ -69,27 +69,30 @@ public class GhostMovements : MonoBehaviour
     /// </summary>
     private IEnumerator MoveToPosition(Vector3 targetPosition, float duration)
     {
-        float elapsedTime = 0f;
-        Vector3 initialPosition = transform.position; // Starting position
+    float elapsedTime = 0f;
+    Vector3 initialPosition = transform.position; // Starting position
 
-        while (elapsedTime < duration)
-        {
-            float progress = elapsedTime / duration;
-            float easedProgress = Mathf.SmoothStep(0f, 1f, progress);
+    while (elapsedTime < duration)
+    {
+        float progress = elapsedTime / duration;
+        float easedProgress = Mathf.SmoothStep(0f, 1f, progress);
 
-            // Interpolate position
-            Vector3 currentPosition = Vector3.Lerp(initialPosition, targetPosition, easedProgress);
+        // Interpolate position
+        Vector3 currentPosition = Vector3.Lerp(initialPosition, targetPosition, easedProgress);
 
-            // Apply position
-            transform.position = currentPosition;
+        // Apply position
+        transform.position = currentPosition;
 
-            elapsedTime += Time.deltaTime; // Increase time
-            yield return null;
-        }
-
-        // Make sure the position is exact
-        transform.position = targetPosition;
-        print("gigi");
-        FindObjectOfType<LeadboardCanvas>().MoveImageDown();
+        elapsedTime += Time.deltaTime; // Increase time
+        yield return null;
     }
+
+    // Make sure the position is exact
+    transform.position = targetPosition;
+
+    // Update the initial position for floating effect
+    this.initialPosition = targetPosition;
+
+    FindObjectOfType<LeadboardCanvas>().MoveImageDown();
+}
 }

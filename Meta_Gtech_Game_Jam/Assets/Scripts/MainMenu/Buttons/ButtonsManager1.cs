@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class ButtonsManager1 : MonoBehaviour
 {
     [SerializeField] LeaderboardStart leaderboardStart;
+    private bool isPressed = false;
 
     /// <summary>
     /// Switch to game scene
@@ -26,6 +27,7 @@ public class ButtonsManager1 : MonoBehaviour
     /// </summary>
     public void Leaderboard()
     {
+
         leaderboardStart.setupLeaderboard();
     }
 }

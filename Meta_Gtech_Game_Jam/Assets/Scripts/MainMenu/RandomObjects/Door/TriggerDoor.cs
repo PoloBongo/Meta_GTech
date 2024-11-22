@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class TriggerDoor : MonoBehaviour
 {
-    [SerializeField] private RotateDoor rotateDoorRight; // Référence au script RotateDoor
-    [SerializeField] private RotateDoor rotateDoorLeft; // Référence au script RotateDoor
+    [SerializeField] private RotateDoor rotateDoorRight;
+    [SerializeField] private RotateDoor rotateDoorLeft; 
 
     private void OnTriggerEnter(Collider other)
     {
-        // Vérifie si l'objet entrant est le fantôme
-        if (other.CompareTag("Player"));
+
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Fantôme détecté ! Ouverture de la grille.");
+
             rotateDoorRight.RotateDoorSetup();
             rotateDoorLeft.RotateDoorSetup();
         }

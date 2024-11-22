@@ -14,28 +14,28 @@ public class LeadboardCanvas : MonoBehaviour
     }
     public void MoveImageDown()
     {
-        print("omg");
+
         StartCoroutine(SlideImageDown(targetY, moveDuration));
     }
 
     private IEnumerator SlideImageDown(float targetY, float duration)
     {
         float elapsedTime = 0f;
-        Vector2 initialPosition = imageTransform.anchoredPosition; // Position initiale
-        Vector2 targetPosition = new Vector2(initialPosition.x, targetY); // Position cible
+        Vector2 initialPosition = imageTransform.anchoredPosition; 
+        Vector2 targetPosition = new Vector2(initialPosition.x, targetY); 
 
         while (elapsedTime < duration)
         {
             float progress = elapsedTime / duration;
 
-            // Interpolation linéaire entre la position initiale et la cible
+
             imageTransform.anchoredPosition = Vector2.Lerp(initialPosition, targetPosition, progress);
 
-            elapsedTime += Time.deltaTime; // Temps écoulé
-            yield return null; // Attendre la frame suivante
+            elapsedTime += Time.deltaTime; 
+            yield return null; 
         }
 
-        // S'assurer que la position finale est exacte
+   
         imageTransform.anchoredPosition = targetPosition;
     }
 }
