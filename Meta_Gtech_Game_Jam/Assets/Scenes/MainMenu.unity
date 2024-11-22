@@ -805,7 +805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 888888
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9216390d39f50244b95cb25f585052f, type: 2}
   m_sharedMaterial: {fileID: -5819364689433005170, guid: b9216390d39f50244b95cb25f585052f,
@@ -2099,7 +2099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8888888
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9216390d39f50244b95cb25f585052f, type: 2}
   m_sharedMaterial: {fileID: -5819364689433005170, guid: b9216390d39f50244b95cb25f585052f,
@@ -2465,7 +2465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 888888
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9216390d39f50244b95cb25f585052f, type: 2}
   m_sharedMaterial: {fileID: -5819364689433005170, guid: b9216390d39f50244b95cb25f585052f,
@@ -5256,6 +5256,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 604248557309066632, guid: 73dc29fd34a060743a7d05cdbc474637,
         type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1196503082}
+    - target: {fileID: 604248557309066632, guid: 73dc29fd34a060743a7d05cdbc474637,
+        type: 3}
       propertyPath: backButton
       value: 
       objectReference: {fileID: 273611949}
@@ -5419,7 +5424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: null
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9216390d39f50244b95cb25f585052f, type: 2}
   m_sharedMaterial: {fileID: -5819364689433005170, guid: b9216390d39f50244b95cb25f585052f,
@@ -7395,7 +7400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: null
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9216390d39f50244b95cb25f585052f, type: 2}
   m_sharedMaterial: {fileID: -5819364689433005170, guid: b9216390d39f50244b95cb25f585052f,
@@ -8611,7 +8616,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: null
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9216390d39f50244b95cb25f585052f, type: 2}
   m_sharedMaterial: {fileID: -5819364689433005170, guid: b9216390d39f50244b95cb25f585052f,

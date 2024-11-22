@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameButtonManager : MonoBehaviour
 {
     [SerializeField] private MenuDisplay menuDisplay;
-
-
     public void ResumeGame()
     {
         Debug.Log("Resuming game...");

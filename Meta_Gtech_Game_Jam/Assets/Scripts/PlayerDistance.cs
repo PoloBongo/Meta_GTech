@@ -26,5 +26,10 @@ public class PlayerDistance : MonoBehaviour
     {
         return distance;
     }
+
+    public TextChangeValue GetTextChangeValue()
+    {
+        return textMesh;
+    }
     
 }

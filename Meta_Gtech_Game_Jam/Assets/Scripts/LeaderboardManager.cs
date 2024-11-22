@@ -27,29 +27,29 @@ public class LeaderboardManager : MonoBehaviour
     
         Leaderboards.metaLeaderboard.GetEntries(entries =>
         {
+            int entryCount = entries.Length;
+            if(entryCount == 0) return;
             //1st
             _entryTextObjects[0].text = $"{entries[0].Rank}.";
-            _entryTextObjects[1].text = $"{entries[1].Username} -";
-            _entryTextObjects[2].text = $"{entries[2].Score}";
-            
+            _entryTextObjects[1].text = $"{entries[0].Username} -";
+            _entryTextObjects[2].text = $"{entries[0].Score}";
+
+            if (entryCount == 1) return;
             //2nd
-            _entryTextObjects[3].text = $"{entries[3].Rank}.";
-            _entryTextObjects[4].text = $"{entries[4].Username} -";
-            _entryTextObjects[5].text = $"{entries[5].Score}";
+            _entryTextObjects[3].text = $"{entries[1].Rank}.";
+            _entryTextObjects[4].text = $"{entries[1].Username} -";
+            _entryTextObjects[5].text = $"{entries[1].Score}";
             
+            if (entryCount == 2) return;
             //3rd
-            _entryTextObjects[6].text = $"{entries[6].Rank}.";
-            _entryTextObjects[7].text = $"{entries[7].Username} -";
-            _entryTextObjects[8].text = $"{entries[8].Score}";
+            _entryTextObjects[6].text = $"{entries[2].Rank}.";
+            _entryTextObjects[7].text = $"{entries[2].Username} -";
+            _entryTextObjects[8].text = $"{entries[2].Score}";
         });
     }
     
     public void UploadEntry()
     {
-        Leaderboards.metaLeaderboard.UploadNewEntry(_usernameInputField.text, Score, isSuccessful =>
-        {
-            if (isSuccessful)
-                LoadEntries();
-        });
+        Leaderboards.metaLeaderboard.UploadNewEntry(_usernameInputField.text, Score);
     }
 }

@@ -25,7 +25,7 @@ public class GameModeSoleil : MonoBehaviour
     }
     private void Update()
     {
-
+        if (PlayerManager.Instance.isDead) return;
         ManageSounds();
     }
 

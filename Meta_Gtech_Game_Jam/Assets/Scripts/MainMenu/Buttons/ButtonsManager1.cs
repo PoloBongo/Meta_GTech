@@ -9,6 +9,7 @@ public class ButtonsManager1 : MonoBehaviour
     [SerializeField] GameObject mainMenuCanva;
     [SerializeField] private CanvaFadeController mainMenuCanvas;
     [SerializeField] private Button backButton;      
+    [SerializeField] private GameObject ghost;
 
     public bool leaderboardIsPressed = false;
 
@@ -22,6 +23,7 @@ public class ButtonsManager1 : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
+        StopAllCoroutines();
         SceneManager.LoadScene("Game");
     }
     /// <summary>

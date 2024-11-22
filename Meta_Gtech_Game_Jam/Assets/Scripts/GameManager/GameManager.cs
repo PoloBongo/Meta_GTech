@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         {
             audioSource.UnPause();
         }
-        deathMananger.Verrify();
+        deathMananger.Verify();
     }
 
     private void FixedUpdate()
