@@ -9,7 +9,7 @@ public class AITrap : MonoBehaviour
     
     [Header("Settings Trap")]
     [SerializeField] private float spawnDistanceToPlayer;
-    [SerializeField] private int impulseForce;
+    [SerializeField] private float impulseForce;
     
     private Rigidbody rigidbody;
     
@@ -20,7 +20,6 @@ public class AITrap : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         raycastingDetectionObject = GetComponent<RaycastingDetectionObject>();
-        PlaceSingleTrap();
     }
 
     private void PlaceSingleTrap()
@@ -36,6 +35,21 @@ public class AITrap : MonoBehaviour
             Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
             Instantiate(trapAIPrefab, spawnPos, trapAIPrefab.transform.rotation);
         }
+    }
+    
+    private void OnEnable()
+    {
+        GameManager.OnCanPutTrapOnMap += HandleReturnCanPutTrapOnMap;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnCanPutTrapOnMap -= HandleReturnCanPutTrapOnMap;
+    }
+
+    private void HandleReturnCanPutTrapOnMap()
+    {
+        PlaceSingleTrap();
     }
 
     private void OnCollisionEnter(Collision other)

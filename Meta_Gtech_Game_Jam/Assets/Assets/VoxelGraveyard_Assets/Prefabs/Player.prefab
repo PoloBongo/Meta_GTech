@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b27a33f4a13e47541bdef709ae59ff17,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b27a33f4a13e47541bdef709ae59ff17,
         type: 3}
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcccef8c52cf91b4e9c128827dfad569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  playerSpeed: 3
   leftRightResistance: 100
   moveSmoothTime: 0
   isMovingForward: 0
@@ -390,7 +390,7 @@ Rigidbody:
   m_GameObject: {fileID: 5684810959500109282}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1.3
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5684810959500109282}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7b0702609d77724aad82b07b003d3b3, type: 3}
   m_Name: 
@@ -424,7 +424,7 @@ MonoBehaviour:
   trapAIPrefab: {fileID: 4957825512291673496, guid: 518737435e6326141985eb6e9bd1ff49,
     type: 3}
   raycastingDetectionObject: {fileID: 8081968565021360498}
-  spawnDistanceToPlayer: 4
+  spawnDistanceToPlayer: 8
   impulseForce: 7
 --- !u!114 &8081968565021360498
 MonoBehaviour:
