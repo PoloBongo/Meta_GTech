@@ -22,8 +22,10 @@ public class DeathMananger : MonoBehaviour
     {
         if(rb.velocity.magnitude >= 0 &&  gameMode.IsThirdSoundPlayed())
         {
-            sauvegarde.SaveScore(playerDistance.GetDistance());
-            print("score save"+sauvegarde.LoadScore());
+            if(sauvegarde.LoadScore() < playerDistance.GetDistance())
+            {
+                sauvegarde.SaveScore(playerDistance.GetDistance());
+            }
         }
     }
 }
