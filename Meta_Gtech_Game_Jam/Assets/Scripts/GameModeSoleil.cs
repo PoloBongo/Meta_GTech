@@ -76,4 +76,5 @@ public class GameModeSoleil : MonoBehaviour
         }
     }
 
+    public bool IsThirdSoundPlayed() { return thirdSoundPlayed; }
 }
