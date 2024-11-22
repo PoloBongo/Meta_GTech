@@ -8,6 +8,12 @@ public class LightManager : MonoBehaviour
 {
     private List<Light> lights = new List<Light>();
     public Material materialToChange;
+    private bool stateLight;
+
+    private void Start()
+    {
+        TurnOnAllLights();
+    }
 
     private void Update()
     {
@@ -58,11 +64,23 @@ public class LightManager : MonoBehaviour
 
     public void TurnOffAllLights()
     {
+        SetStateLight(false);
         SetLightIntensity(0, 0);
     }
 
     public void TurnOnAllLights()
     {
+        SetStateLight(true);
         SetLightIntensity(0.1f, 40);
+    }
+
+    public bool GetStateLight()
+    {
+        return stateLight;
+    }
+
+    private void SetStateLight(bool _state)
+    {
+        stateLight = _state;
     }
 }
