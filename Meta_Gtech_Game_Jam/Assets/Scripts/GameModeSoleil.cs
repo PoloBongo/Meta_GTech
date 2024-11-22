@@ -11,9 +11,10 @@ public class GameModeSoleil : MonoBehaviour
     private AudioSource audioSource;
 
     public bool thirdSoundPlayed = false;
+    private bool antiSpamLightOn = false;
     private float thirdSoundTime = 0f;
 
-    private int currenTime = 3;
+    private int currentTime = 3;
     public float globalSpeed = 2f;
 
     private int soundIndex = 0;
@@ -33,26 +34,33 @@ public class GameModeSoleil : MonoBehaviour
         if (thirdSoundPlayed && Time.time >= thirdSoundTime + 3f)
         {
             thirdSoundPlayed = false;
+            antiSpamLightOn = false;
         }
 
         if (!audioSource.isPlaying && isPlayingSound)
         {
             isPlayingSound = false; 
-            if (soundIndex == currenTime) { soundIndex = 0; return; }
+            if (soundIndex == currentTime) { soundIndex = 0; return; }
             soundIndex++; 
             if (soundIndex < audioClip.Count)
             {
                 PlaySound();
             }
         }
+
+        if (!thirdSoundPlayed && !antiSpamLightOn)
+        {
+            lightManager.TurnOnAllLights();
+            antiSpamLightOn = true;
+        }
     }
 
-    public int SetCurrenTime(int time) { return currenTime = time; }
+    public int SetCurrentTime(int time) { return currentTime = time; }
     public void PlaySound()
     {
         if (soundIndex >= audioClip.Count)
             return; 
-        print(soundIndex);
+        
         AudioClip currentClip = audioClip[soundIndex];
         audioSource.clip = currentClip;
         audioSource.pitch = globalSpeed;
@@ -76,4 +84,5 @@ public class GameModeSoleil : MonoBehaviour
         }
     }
 
+    public bool IsThirdSoundPlayed() { return thirdSoundPlayed; }
 }

@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 currentMoveVelocity;
     private Vector3 moveDampVelocity;
     private Vector3 currentForceVelocity;
-    private void Update()
+    private void FixedUpdate()
     {
         MovePlayer();
     }
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, movement * playerSpeed, ref currentForceVelocity, moveSmoothTime);
-        transform.position += new Vector3(currentMoveVelocity.x, 0, currentMoveVelocity.y) * Time.deltaTime;
+        GetComponent<Rigidbody>().AddForce(new Vector3(currentMoveVelocity.x, 0, currentMoveVelocity.y) * playerSpeed);
         PlayerManager.Instance.GetPlayerDistance().UpdateCurrentDistance();
     }
 }

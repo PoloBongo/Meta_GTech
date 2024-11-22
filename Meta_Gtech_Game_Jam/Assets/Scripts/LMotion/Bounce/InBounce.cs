@@ -9,7 +9,7 @@ public class InBounce : MonoBehaviour
     [SerializeField] private float endPositionY;
     private Vector3 originalPosition;
 
-    private void Start()
+    private void OnEnable()
     {
         originalPosition = transform.position;
         transform.position = new Vector3(originalPosition.x, startPositionY, originalPosition.z);
