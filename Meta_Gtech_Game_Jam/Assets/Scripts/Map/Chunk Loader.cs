@@ -15,6 +15,7 @@ public class ChunkLoader : MonoBehaviour
     
     public int chunkSize = 15;
     private int renderDistance = 5;
+    private int spawnOriginY = 0;
 
     void Start()
     {
@@ -25,17 +26,17 @@ public class ChunkLoader : MonoBehaviour
             for (int i = 0; i < renderDistance; i++)
             {
                 GameObject chunkMain = chunkHandler.GetAvailableChunk(chunkHandler.chunkPrefabsMain, chunkHandler.chunksListMain, chunkHandler.availablePrefabIndicesMain);
-                chunkMain.transform.position = new Vector3(chunkSize * i, -3, 0);
+                chunkMain.transform.position = new Vector3(chunkSize * i, spawnOriginY, 0);
                 chunkMain.SetActive(true);
                 chunksListMain.Add(chunkMain);
 
                 GameObject chunkRight = chunkHandler.GetAvailableChunk(chunkHandler.chunkPrefabsBorderR, chunkHandler.chunksListBorderR, chunkHandler.availablePrefabIndicesBorderR);
-                chunkRight.transform.position = new Vector3(chunkSize * i, -3, chunkSize);
+                chunkRight.transform.position = new Vector3(chunkSize * i, spawnOriginY, chunkSize);
                 chunkRight.SetActive(true);
                 chunksListBorderR.Add(chunkRight);
 
                 GameObject chunkLeft = chunkHandler.GetAvailableChunk(chunkHandler.chunkPrefabsBorderL, chunkHandler.chunksListBorderL, chunkHandler.availablePrefabIndicesBorderL);
-                chunkLeft.transform.position = new Vector3(chunkSize * i, -3, -chunkSize);
+                chunkLeft.transform.position = new Vector3(chunkSize * i, spawnOriginY, -chunkSize);
                 chunkLeft.SetActive(true);
                 chunksListBorderL.Add(chunkLeft);
             }
@@ -75,7 +76,7 @@ public class ChunkLoader : MonoBehaviour
         if (player.transform.position.x > lastChunk.transform.position.x - (chunkSize * (renderDistance - 2)))
         {
             GameObject newChunkMain = chunkHandler.GetAvailableChunk(chunkHandler.chunkPrefabsMain, chunkHandler.chunksListMain, chunkHandler.availablePrefabIndicesMain);
-            newChunkMain.transform.position = new Vector3(lastChunk.transform.position.x + chunkSize, -3, 0);
+            newChunkMain.transform.position = new Vector3(lastChunk.transform.position.x + chunkSize, spawnOriginY, 0);
             newChunkMain.SetActive(true);
             chunksListMain.Add(newChunkMain);
         }
@@ -96,7 +97,7 @@ public class ChunkLoader : MonoBehaviour
         if (player.transform.position.x > lastChunk.transform.position.x - (chunkSize * (renderDistance - 2)))
         {
             GameObject newChunkRight = chunkHandler.GetAvailableChunk(chunkHandler.chunkPrefabsBorderR, chunkHandler.chunksListBorderR, chunkHandler.availablePrefabIndicesBorderR);
-            newChunkRight.transform.position = new Vector3(lastChunk.transform.position.x + chunkSize, -3, chunkSize);
+            newChunkRight.transform.position = new Vector3(lastChunk.transform.position.x + chunkSize, spawnOriginY, chunkSize);
             newChunkRight.SetActive(true);
             chunksListBorderR.Add(newChunkRight);
         }
@@ -117,7 +118,7 @@ public class ChunkLoader : MonoBehaviour
         if (player.transform.position.x > lastChunk.transform.position.x - (chunkSize * (renderDistance - 2)))
         {
             GameObject newChunkLeft = chunkHandler.GetAvailableChunk(chunkHandler.chunkPrefabsBorderL, chunkHandler.chunksListBorderL, chunkHandler.availablePrefabIndicesBorderL);
-            newChunkLeft.transform.position = new Vector3(lastChunk.transform.position.x + chunkSize, -3, -chunkSize);
+            newChunkLeft.transform.position = new Vector3(lastChunk.transform.position.x + chunkSize, spawnOriginY, -chunkSize);
             newChunkLeft.SetActive(true);
             chunksListBorderL.Add(newChunkLeft);
         }
