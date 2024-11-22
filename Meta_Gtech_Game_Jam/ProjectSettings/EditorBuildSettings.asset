@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Henri.unity
     guid: 6f717fb746ee42d44bf053c9b719c4a6
+  - enabled: 1
+    path: Assets/Scenes/Henri 1.unity
+    guid: c998ee60c581c4346a8047895e78a912
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e6cea301e63aa904797c716b8c56cfd8,
       type: 2}
