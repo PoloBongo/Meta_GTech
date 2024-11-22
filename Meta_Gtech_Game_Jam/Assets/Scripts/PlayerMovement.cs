@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
     }
-
     public void MovePlayer()
     {
         Vector2 movement = Vector2.zero;
