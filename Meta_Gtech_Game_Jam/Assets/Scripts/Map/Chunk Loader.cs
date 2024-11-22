@@ -21,7 +21,7 @@ public class ChunkLoader : MonoBehaviour
             for (int i = 0; i < renderDistance; i++)
             {
                 GameObject chunk = chunkHandler.GetAvailableChunk();
-                chunk.transform.position = new Vector3(0, -2, i * chunkSize);
+                chunk.transform.position = new Vector3(i * chunkSize, -2, 0);
                 chunk.SetActive(true);
                 chunksList.Add(chunk);
             }
@@ -40,15 +40,15 @@ public class ChunkLoader : MonoBehaviour
         GameObject lastChunk = chunksList.Last();
         GameObject firstChunk = chunksList.First();
 
-        if (player.transform.position.z > lastChunk.transform.position.z - (chunkSize * (renderDistance - 2)))
+        if (player.transform.position.x > lastChunk.transform.position.x - (chunkSize * (renderDistance - 2)))
         {
             GameObject newChunk = chunkHandler.GetAvailableChunk();
             
-            newChunk.transform.position = new Vector3(0, -2, lastChunk.transform.position.z + chunkSize);
+            newChunk.transform.position = new Vector3(lastChunk.transform.position.x + chunkSize, -2, 0);
             newChunk.SetActive(true);
             chunksList.Add(newChunk);
         }
-        if (player.transform.position.z > firstChunk.transform.position.z + (chunkSize * 1.5))
+        if (player.transform.position.x > firstChunk.transform.position.x + (chunkSize * 1.5))
         {
             firstChunk.SetActive(false);
             chunksList.Remove(firstChunk);
