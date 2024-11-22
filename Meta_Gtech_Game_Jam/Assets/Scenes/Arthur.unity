@@ -238,6 +238,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownAfterModelSoleilExecution: 5
+  gameModeSoleil: {fileID: 110548036}
+  playerDistance: {fileID: 2101930250}
+  palierSound: 100
+  minPalier: 50
+  minPalierObjectifAtteint: 50
 --- !u!4 &123125797
 Transform:
   m_ObjectHideFlags: 0
@@ -1209,6 +1214,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2839984772348140421}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2101930250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6682616353514575262, guid: 43cddc16c35b5c74e8f98219435f25bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2839984772348140421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101930234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac81cd098b0260b48b18284b202c951f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2839984772348140421
 PrefabInstance:
   m_ObjectHideFlags: 0
