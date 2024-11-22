@@ -432,6 +432,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1461619581}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &318729488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6682616353514575262, guid: 43cddc16c35b5c74e8f98219435f25bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1461619581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318729483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac81cd098b0260b48b18284b202c951f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &389392187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1313,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2019128858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2019128860}
+  - component: {fileID: 2019128859}
+  m_Layer: 0
+  m_Name: Save
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2019128859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019128858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d75730e7587fef4b80241da4b62ac6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2019128860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019128858}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 251.54807, y: -57.17152, z: -16.662922}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8600811468704998468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1316,9 +1372,19 @@ PrefabInstance:
       objectReference: {fileID: 886281156}
     - target: {fileID: 1192322229948535825, guid: b2f5b2c084996e4438d863480122dbbf,
         type: 3}
+      propertyPath: sauvegarde
+      value: 
+      objectReference: {fileID: 2019128859}
+    - target: {fileID: 1192322229948535825, guid: b2f5b2c084996e4438d863480122dbbf,
+        type: 3}
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 318729484}
+    - target: {fileID: 1192322229948535825, guid: b2f5b2c084996e4438d863480122dbbf,
+        type: 3}
+      propertyPath: playerDistance
+      value: 
+      objectReference: {fileID: 318729488}
     - target: {fileID: 1588855696571338519, guid: b2f5b2c084996e4438d863480122dbbf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1394,3 +1460,4 @@ SceneRoots:
   - {fileID: 258041796}
   - {fileID: 650992448}
   - {fileID: 8600811468704998468}
+  - {fileID: 2019128860}
