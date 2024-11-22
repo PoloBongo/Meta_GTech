@@ -42,5 +42,6 @@ public class PlayerMovement : MonoBehaviour
         }
         currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, movement * playerSpeed, ref currentForceVelocity, moveSmoothTime);
         transform.position += new Vector3(currentMoveVelocity.x, 0, currentMoveVelocity.y) * Time.deltaTime;
+        PlayerManager.Instance.GetPlayerDistance().UpdateCurrentDistance();
     }
 }

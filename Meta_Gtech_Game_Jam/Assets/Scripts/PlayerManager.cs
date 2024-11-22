@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.Controls;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] PlayerDistance playerDistance;
 
     private static PlayerManager instance;
 
@@ -24,6 +25,11 @@ public class PlayerManager : MonoBehaviour
     public PlayerMovement GetPlayerMovement()
     {
         return playerMovement;
+    }
+
+    public PlayerDistance GetPlayerDistance()
+    {
+        return playerDistance;
     }
     
 }
