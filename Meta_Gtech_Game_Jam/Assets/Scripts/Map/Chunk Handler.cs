@@ -30,14 +30,7 @@ namespace Map
 
         private void SetupChunks()
         {
-            if (lightManager.GetStateLight())
-            {
-                lightManager.TurnOnAllLights();
-            }
-            else
-            {
-                lightManager.TurnOffAllLights();
-            }
+            SetUpLights();
             chunksListMain.Clear();
             chunksListBorderR.Clear();
             chunksListBorderL.Clear();
@@ -65,6 +58,18 @@ namespace Map
                 chunk.SetActive(false);
             }
             
+        }
+
+        private void SetUpLights()
+        {
+            if (lightManager.GetStateLight())
+            {
+                lightManager.TurnOnAllLights();
+            }
+            else
+            {
+                lightManager.TurnOffAllLights();
+            }
         }
 
         private int GetRandomPrefabIndex(List<int> availableIndices, GameObject[] chunkPrefabs)
@@ -143,5 +148,35 @@ namespace Map
 
             return chunkList.Last();
         }
+        
+        public void ResetChunks(string side, GameObject chunk)
+        {
+            switch (side)
+            {
+                case "Main":
+                    GameObject newChunk = Instantiate(GetRandomPrefabForSide(side), transform);
+                    chunksListMain.Add(newChunk);
+                    newChunk.SetActive(false);
+                    chunksListMain.Remove(chunk);
+                    Destroy(chunk);
+                    break;
+                case "Right":
+                    newChunk = Instantiate(GetRandomPrefabForSide(side), transform);
+                    chunksListBorderR.Add(newChunk);
+                    newChunk.SetActive(false);
+                    chunksListBorderR.Remove(chunk);
+                    Destroy(chunk);
+                    break;
+                case "Left":
+                    newChunk = Instantiate(GetRandomPrefabForSide(side), transform);
+                    chunksListBorderL.Add(newChunk);
+                    newChunk.SetActive(false);
+                    chunksListBorderL.Remove(chunk);
+                    Destroy(chunk);
+                    break;
+            }
+            SetUpLights();
+        }
+
     }
 }
