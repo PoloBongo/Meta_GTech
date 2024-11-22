@@ -8,9 +8,12 @@ public class AITrap : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject trapAIPrefab;
     [SerializeField] private float spawnDistanceToPlayer;
+    [SerializeField] private int impulseForce;
+    private Rigidbody rigibody;
 
     private void Start()
     {
+        rigibody = GetComponent<Rigidbody>();
         PlaceSingleTrap();
     }
 
@@ -22,5 +25,14 @@ public class AITrap : MonoBehaviour
 
         Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
         Instantiate(trapAIPrefab, spawnPos, trapAIPrefab.transform.rotation);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Trap"))
+        {
+            Debug.Log(other.gameObject.name);
+            rigibody.AddForce(-transform.forward * impulseForce, ForceMode.Impulse);
+        }
     }
 }
