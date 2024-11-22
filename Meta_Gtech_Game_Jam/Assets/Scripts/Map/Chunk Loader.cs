@@ -48,7 +48,7 @@ public class ChunkLoader : MonoBehaviour
             newChunk.SetActive(true);
             chunksList.Add(newChunk);
         }
-        if (player.transform.position.x > firstChunk.transform.position.x + (chunkSize * 1.5))
+        if (player.transform.position.x > firstChunk.transform.position.x + (chunkSize * 2))
         {
             firstChunk.SetActive(false);
             chunksList.Remove(firstChunk);
