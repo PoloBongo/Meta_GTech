@@ -19,6 +19,9 @@ namespace Map
         public List<int> availablePrefabIndicesMain = new List<int>();
         public List<int> availablePrefabIndicesBorderR = new List<int>();
         public List<int> availablePrefabIndicesBorderL = new List<int>();
+        
+        [Header("Light Settings")]
+        [SerializeField] private LightManager lightManager;
 
         void Start()
         {
@@ -27,6 +30,14 @@ namespace Map
 
         private void SetupChunks()
         {
+            if (lightManager.GetStateLight())
+            {
+                lightManager.TurnOnAllLights();
+            }
+            else
+            {
+                lightManager.TurnOffAllLights();
+            }
             chunksListMain.Clear();
             chunksListBorderR.Clear();
             chunksListBorderL.Clear();
