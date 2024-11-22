@@ -10,7 +10,7 @@ public class LightManager : MonoBehaviour
     [SerializeField] private GameModeSoleil modeSoleil;
     public Material materialToChange;
     private bool stateLight;
-    public float blinkDuration = 3f; // Durée totale du clignotement
+    public float blinkDuration = 3f; // Durï¿½e totale du clignotement
     private float elapsedTime = 0f;
     private bool active;
     private bool sonActive;
@@ -71,6 +71,7 @@ public class LightManager : MonoBehaviour
 
     public List<Light> GetAllLights()
     {
+        lights.Clear();
         var allLights = FindObjectsOfType<Light>();
         lights.AddRange(allLights);
         return lights;
