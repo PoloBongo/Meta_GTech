@@ -21,6 +21,6 @@ public class AITrap : MonoBehaviour
         float spawnDistance = spawnDistanceToPlayer;
 
         Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
-        Instantiate(trapAIPrefab, spawnPos, Quaternion.identity);
+        Instantiate(trapAIPrefab, spawnPos, trapAIPrefab.transform.rotation);
     }
 }
