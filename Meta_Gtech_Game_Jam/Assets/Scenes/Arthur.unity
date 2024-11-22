@@ -298,7 +298,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1734100299}
+  m_LookAt: {fileID: 0}
   m_Follow: {fileID: 2101930233}
   m_Lens:
     FieldOfView: 100
@@ -1042,12 +1042,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!4 &1734100299 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3820796247103704366, guid: 5ec3c2c520dbed04c91f0333e31a3576,
-    type: 3}
-  m_PrefabInstance: {fileID: 2101930232}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2071738807
 GameObject:
   m_ObjectHideFlags: 0
