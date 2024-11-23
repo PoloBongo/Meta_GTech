@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 currentForceVelocity;
     private void FixedUpdate()
     {
+        if (PlayerManager.Instance.isDead) return;
         MovePlayer();
     }
     public void MovePlayer()

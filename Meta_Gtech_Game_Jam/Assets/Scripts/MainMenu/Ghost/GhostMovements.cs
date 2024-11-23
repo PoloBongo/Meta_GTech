@@ -2,19 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GhostMovements : MonoBehaviour
 {
     [SerializeField] private float floatAmplitude = 0.5f; //Max amplitude
     [SerializeField] private float floatSpeed = 2f;       // Floating speed
+    [SerializeField] private Button backButton;       // Floating speed
+    [SerializeField] private GameObject mainMenuCanva;
+    [SerializeField] private ButtonsManager1 buttonsManager1;
 
-  
+
     private Vector3 initialPosition;
+    private Vector3 initialPosition2;
 
+    private AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         // Initial position
         initialPosition = transform.position;
+        initialPosition2 = transform.position;
     }
 
     private void Update()
@@ -69,7 +77,8 @@ public class GhostMovements : MonoBehaviour
     /// </summary>
     private IEnumerator MoveToPosition(Vector3 targetPosition, float duration)
     {
-    float elapsedTime = 0f;
+        audioSource.Play();
+        float elapsedTime = 0f;
     Vector3 initialPosition = transform.position; // Starting position
 
     while (elapsedTime < duration)
@@ -89,10 +98,20 @@ public class GhostMovements : MonoBehaviour
 
     // Make sure the position is exact
     transform.position = targetPosition;
-
+    
     // Update the initial position for floating effect
     this.initialPosition = targetPosition;
-
-    FindObjectOfType<LeadboardCanvas>().MoveImageDown();
+        if (targetPosition != initialPosition2)
+        {
+            if (backButton) backButton.gameObject.SetActive(true);
+            FindObjectOfType<LeadboardCanvas>().MoveImageDown(0f, 0.6f);
+        }
+        else
+        {
+            if (mainMenuCanva) mainMenuCanva.SetActive(true);
+            if (buttonsManager1) buttonsManager1.leaderboardIsPressed = false;
+            
+        }
+        
 }
 }

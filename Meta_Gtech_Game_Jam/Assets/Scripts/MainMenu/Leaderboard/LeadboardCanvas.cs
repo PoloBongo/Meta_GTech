@@ -6,15 +6,13 @@ public class LeadboardCanvas : MonoBehaviour
 {
     [SerializeField] private RectTransform imageTransform; // L'image à déplacer
 
-    [SerializeField] private float targetY = 0f; // Position finale en Y
-    [SerializeField] private float moveDuration = 2f; // Durée de l'animation
+
     private void Start()
     {
      
     }
-    public void MoveImageDown()
+    public void MoveImageDown(float targetY, float moveDuration)
     {
-
         StartCoroutine(SlideImageDown(targetY, moveDuration));
     }
 

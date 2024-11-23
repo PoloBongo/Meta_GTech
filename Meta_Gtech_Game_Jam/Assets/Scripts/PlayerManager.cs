@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerDistance playerDistance;
+    public bool isDead = false;
 
     private static PlayerManager instance;
 
