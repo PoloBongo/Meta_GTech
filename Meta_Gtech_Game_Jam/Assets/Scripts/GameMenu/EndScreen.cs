@@ -17,6 +17,7 @@ public class EndScreen : MonoBehaviour
     /// </summary>
     public void MainMenu()
     {
+        StopAllCoroutines();
         SceneManager.LoadScene("MainMenu");
     }
 }
