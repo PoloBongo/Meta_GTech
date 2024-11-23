@@ -86,4 +86,9 @@ public class GameModeSoleil : MonoBehaviour
     public bool IsFourthSoundPlayed() { return fourthSoundPlayed; }
     
     public bool GetIsPlayingSound() { return isPlayingSound; }
+
+    public void SetGlobalSpeed(float _globalSpeed)
+    {
+        globalSpeed = _globalSpeed;
+    }
 }

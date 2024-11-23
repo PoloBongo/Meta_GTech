@@ -103,6 +103,16 @@ public class GameManager : MonoBehaviour
             {
                 randomFeinte = Random.Range(0, 8);
             }
+
+            int randSpeedSon = Random.Range(0, maxRandom);
+            if (randSpeedSon <= 2)
+            {
+                gameModeSoleil.SetGlobalSpeed(1);
+            }
+            else
+            {
+                gameModeSoleil.SetGlobalSpeed(2);
+            }
             gameModeSoleil.PlaySound(randomFeinte);
         }
     }
