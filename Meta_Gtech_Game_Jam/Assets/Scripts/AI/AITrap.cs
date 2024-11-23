@@ -6,7 +6,8 @@ public class AITrap : MonoBehaviour
 {
     [Header("SerializeField Trap")]
     [SerializeField] private GameObject player;
-    [SerializeField] private List<GameObject> trapAIPrefab;
+    //[SerializeField] private List<GameObject> trapAIPrefab;
+    [SerializeField] private GameObject trapAIPrefab;
     [SerializeField] private RaycastingDetectionObject raycastingDetectionObject;
     private List<GameObject> trapAIlist1 = new List<GameObject>();
     private List<GameObject> trapAIlist2 = new List<GameObject>();
@@ -147,3 +148,4 @@ public class AITrap : MonoBehaviour
         }
     }
 }
+
