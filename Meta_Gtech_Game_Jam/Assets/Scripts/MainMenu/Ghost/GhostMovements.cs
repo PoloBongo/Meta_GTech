@@ -104,7 +104,7 @@ public class GhostMovements : MonoBehaviour
         if (targetPosition != initialPosition2)
         {
             if (backButton) backButton.gameObject.SetActive(true);
-            FindObjectOfType<LeadboardCanvas>().MoveImageDown(0f);
+            FindObjectOfType<LeadboardCanvas>().MoveImageDown(0f, 0.6f);
         }
         else
         {

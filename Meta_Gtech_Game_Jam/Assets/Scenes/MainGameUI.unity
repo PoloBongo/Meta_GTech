@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9142c500737563c4f8aca20a1fa5a07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEndGameCanvas: 0
   _entryTextObjects: []
   _usernameInputField: {fileID: 1260823638}
   _distance: {fileID: 0}

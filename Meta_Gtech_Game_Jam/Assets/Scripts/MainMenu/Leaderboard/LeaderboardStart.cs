@@ -13,6 +13,7 @@ public class LeaderboardStart : MonoBehaviour
     [SerializeField] private GameObject ghost;
     [SerializeField] private float moveDuration;
 
+    [SerializeField] private AudioSource audioSource; 
     private Vector3 originalPosition;
     private void Start()
     {
@@ -24,7 +25,8 @@ public class LeaderboardStart : MonoBehaviour
     }
     public void setupMenu()
     {
-        FindObjectOfType<LeadboardCanvas>().MoveImageDown(500f);
+        audioSource.Play();
+        FindObjectOfType<LeadboardCanvas>().MoveImageDown(500f, 2f);
         StartCoroutine(ghostMovements.SetupGhostLeaderboard(ghostRotation, rotateDuration, originalPosition, moveDuration));
     }
 }
