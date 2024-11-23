@@ -1296,12 +1296,12 @@ PrefabInstance:
     - target: {fileID: 279807199856516773, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.474
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 279807199856516773, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1391893952436663426, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
         type: 3}
@@ -1416,22 +1416,22 @@ PrefabInstance:
     - target: {fileID: 4960944401393150364, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5046539020635107121, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.474
-      objectReference: {fileID: 0}
-    - target: {fileID: 5046539020635107121, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5046539020635107121, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
         type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046539020635107121, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046539020635107121, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
+        type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.474
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5345363590520441437, guid: 2c6cf19ea6ae83e438ef081cd70bf6d9,
         type: 3}
@@ -1688,7 +1688,7 @@ PrefabInstance:
     - target: {fileID: 6710771455387972027, guid: efb2511a54ac6ac4dba00df084eacd2c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1767,6 +1767,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameMenuManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514363064749874532, guid: 94ee96555e870224d9b3e1f70f62b85c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9127024056671213257, guid: 94ee96555e870224d9b3e1f70f62b85c,
         type: 3}

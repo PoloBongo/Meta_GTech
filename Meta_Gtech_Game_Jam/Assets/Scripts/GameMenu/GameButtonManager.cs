@@ -18,6 +18,7 @@ public class GameButtonManager : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Quitting game...");
+        menuDisplay.ToggleMenu();
         SceneManager.LoadScene("MainMenu");
     }
     
