@@ -960,6 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9142c500737563c4f8aca20a1fa5a07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEndGameCanvas: 1
   _entryTextObjects: []
   _usernameInputField: {fileID: 244924868}
   _distance: {fileID: 1057777545}

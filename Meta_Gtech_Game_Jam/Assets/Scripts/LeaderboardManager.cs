@@ -5,6 +5,7 @@ using Dan.Main;
 
 public class LeaderboardManager : MonoBehaviour
 {
+    public bool isEndGameCanvas = false;
     [SerializeField] private TMP_Text[] _entryTextObjects;
     [SerializeField] private TMP_InputField _usernameInputField;
 
@@ -18,7 +19,8 @@ public class LeaderboardManager : MonoBehaviour
     private void Start()
     {
         //LoadEntries();
-        _usernameInputField.characterLimit = 7;
+        if(isEndGameCanvas)
+            _usernameInputField.characterLimit = 7;
     }
 
     public void LoadEntries()
