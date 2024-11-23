@@ -24,7 +24,7 @@ public class ButtonsManager1 : MonoBehaviour
     public void StartGame()
     {
         StopAllCoroutines();
-        SceneManager.LoadSceneAsync("MainGameUI");
+        SceneManager.LoadSceneAsync("Game");
     }
     /// <summary>
     /// Quit the game
