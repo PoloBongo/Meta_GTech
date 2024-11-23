@@ -32,10 +32,10 @@ public class DeathMananger : MonoBehaviour
             playerDistance.GetTextChangeValue().gameObject.SetActive(false);
             if(sauvegarde.LoadScore() < playerDistance.GetDistance())
             {
-                sauvegarde.SaveScore(playerDistance.GetDistance());
+                sauvegarde.SaveScore(Mathf.Round(playerDistance.GetDistance()));
             }
-            newScoreText.text = playerDistance.GetDistance().ToString();
-            bestScoreText.text = sauvegarde.LoadScore().ToString();
+            newScoreText.text = Mathf.Round(playerDistance.GetDistance()).ToString();
+            bestScoreText.text = Mathf.Round(sauvegarde.LoadScore()).ToString();
             endScreen.SetActive(true);
         }
     }
