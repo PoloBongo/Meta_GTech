@@ -26,7 +26,7 @@ public class AITrap : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        raycastingDetectionObject = GetComponent<RaycastingDetectionObject>();
+        //raycastingDetectionObject = GetComponent<RaycastingDetectionObject>();
         listTrapCount = trapAIPrefab.Count;
         SetupPools();
     }
@@ -120,6 +120,7 @@ public class AITrap : MonoBehaviour
             int newTrap = Random.Range(0, listTrapCount);
             GameObject trap = GetFirstAvailableTrap(newTrap);
             trap.transform.position = spawnPos;
+            trap.SetActive(true);
         }
     }
     

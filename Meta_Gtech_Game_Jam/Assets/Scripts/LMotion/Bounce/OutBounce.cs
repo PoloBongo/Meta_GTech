@@ -10,13 +10,9 @@ public class OutBounce : MonoBehaviour
 
     private Vector3 originalPosition;
 
-    private void Awake()
+    private void OnEnable()
     {
         originalPosition = transform.position;
-    }
-
-    private void Start()
-    {
         transform.position = new Vector3(originalPosition.x, startPositionY, originalPosition.z);
         LMotion.Create(transform.position, new Vector3(transform.position.x, endPositionY, transform.position.z), 2f)
             .WithEase(Ease.OutBounce)
