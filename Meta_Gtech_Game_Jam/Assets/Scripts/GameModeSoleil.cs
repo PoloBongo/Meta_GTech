@@ -17,6 +17,7 @@ public class GameModeSoleil : MonoBehaviour
     private int currentTime = 3;
     public float globalSpeed = 2f;
 
+    private int stockRandomFeinte;
     private int soundIndex = 0;
     private bool isPlayingSound = false;
     void Start()
@@ -44,7 +45,7 @@ public class GameModeSoleil : MonoBehaviour
             soundIndex++; 
             if (soundIndex < audioClip.Count)
             {
-                PlaySound();
+                PlaySound(-1);
             }
         }
 
@@ -56,11 +57,13 @@ public class GameModeSoleil : MonoBehaviour
     }
 
     public int SetCurrentTime(int time) { return currentTime = time; }
-    public void PlaySound()
+    public void PlaySound(int _randomFeinte)
     {
+        if (_randomFeinte != -1) stockRandomFeinte = _randomFeinte;
         if (soundIndex >= audioClip.Count)
-            return; 
-        
+            return;
+        Debug.Log(stockRandomFeinte + "gameModeSoleil");
+        if (stockRandomFeinte == soundIndex) return;
         AudioClip currentClip = audioClip[soundIndex];
         audioSource.clip = currentClip;
         audioSource.pitch = globalSpeed;
