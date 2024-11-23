@@ -27,6 +27,11 @@ public class PlayerDistance : MonoBehaviour
         return distance;
     }
 
+    public Vector3 GetPlayerPosition()
+    {
+        return transform.position;
+    }
+
     public TextChangeValue GetTextChangeValue()
     {
         return textMesh;

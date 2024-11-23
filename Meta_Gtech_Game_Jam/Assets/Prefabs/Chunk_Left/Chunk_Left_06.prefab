@@ -123,7 +123,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2397087680742463753}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 007dc3fee64ee0c43a32db68438e9bca, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -343,7 +343,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3591493790451264108}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 007dc3fee64ee0c43a32db68438e9bca, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 3071032496877942233}
   m_Layer: 0
   m_Name: default
-  m_TagString: Trap
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -807,7 +807,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5209414404404783137}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 007dc3fee64ee0c43a32db68438e9bca, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

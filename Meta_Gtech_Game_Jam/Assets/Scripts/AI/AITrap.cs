@@ -5,7 +5,8 @@ public class AITrap : MonoBehaviour
 {
     [Header("SerializeField Trap")]
     [SerializeField] private GameObject player;
-    [SerializeField] private List<GameObject> trapAIPrefab;
+    //[SerializeField] private List<GameObject> trapAIPrefab;
+    [SerializeField] private GameObject trapAIPrefab;
     [SerializeField] private RaycastingDetectionObject raycastingDetectionObject;
     
     [Header("Settings Trap")]
@@ -22,7 +23,7 @@ public class AITrap : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         raycastingDetectionObject = GetComponent<RaycastingDetectionObject>();
-        listTrapCount = trapAIPrefab.Count;
+        //listTrapCount = trapAIPrefab.Count;
     }
 
     private void PlaceSingleTrap()
@@ -37,7 +38,9 @@ public class AITrap : MonoBehaviour
 
             Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
             int newTrap = Random.Range(0, listTrapCount);
-            Instantiate(trapAIPrefab[newTrap], spawnPos, trapAIPrefab[newTrap].transform.rotation);
+            //Instantiate(trapAIPrefab[newTrap], spawnPos, trapAIPrefab[newTrap].transform.rotation);
+            Instantiate(trapAIPrefab, spawnPos, trapAIPrefab.transform.rotation);
+
         }
     }
     
@@ -64,3 +67,4 @@ public class AITrap : MonoBehaviour
         }
     }
 }
+
