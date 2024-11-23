@@ -87,7 +87,15 @@ public class GameManager : MonoBehaviour
     {
         if (canStartGameModeSoleil)
         {
-            gameModeSoleil.SetGlobalSpeed(2);
+            int rand =  Random.Range(0, maxRandom);
+            if(rand <=2)
+            {
+                gameModeSoleil.SetGlobalSpeed(1);
+            }
+            else
+            {
+                gameModeSoleil.SetGlobalSpeed(2);
+            }
             gameModeSoleil.PlaySound();
         }
     }
