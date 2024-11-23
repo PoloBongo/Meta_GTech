@@ -16,8 +16,10 @@ public class GhostMovements : MonoBehaviour
     private Vector3 initialPosition;
     private Vector3 initialPosition2;
 
+    private AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         // Initial position
         initialPosition = transform.position;
         initialPosition2 = transform.position;
@@ -75,7 +77,8 @@ public class GhostMovements : MonoBehaviour
     /// </summary>
     private IEnumerator MoveToPosition(Vector3 targetPosition, float duration)
     {
-    float elapsedTime = 0f;
+        audioSource.Play();
+        float elapsedTime = 0f;
     Vector3 initialPosition = transform.position; // Starting position
 
     while (elapsedTime < duration)
@@ -95,7 +98,7 @@ public class GhostMovements : MonoBehaviour
 
     // Make sure the position is exact
     transform.position = targetPosition;
-
+    
     // Update the initial position for floating effect
     this.initialPosition = targetPosition;
         if (targetPosition != initialPosition2)
