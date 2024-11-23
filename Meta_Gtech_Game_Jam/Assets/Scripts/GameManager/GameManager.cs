@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         if (canStartGameModeSoleil)
         {
+            gameModeSoleil.SetGlobalSpeed(2);
             gameModeSoleil.PlaySound();
         }
     }

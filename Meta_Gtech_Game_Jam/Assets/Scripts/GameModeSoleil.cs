@@ -15,7 +15,7 @@ public class GameModeSoleil : MonoBehaviour
     private float fourthSoundTime = 0f;
 
     private int currentTime = 3;
-    public float globalSpeed = 2f;
+    public float globalSpeed;
 
     private int soundIndex = 0;
     private bool isPlayingSound = false;
@@ -58,6 +58,7 @@ public class GameModeSoleil : MonoBehaviour
     public int SetCurrentTime(int time) { return currentTime = time; }
     public void PlaySound()
     {
+        
         if (soundIndex >= audioClip.Count)
             return; 
         
@@ -83,4 +84,10 @@ public class GameModeSoleil : MonoBehaviour
     public bool IsFourthSoundPlayed() { return fourthSoundPlayed; }
     
     public bool GetIsPlayingSound() { return isPlayingSound; }
+
+    public void SetGlobalSpeed(float _globalSpeed)
+    {
+        globalSpeed = _globalSpeed;
+    }
+
 }
