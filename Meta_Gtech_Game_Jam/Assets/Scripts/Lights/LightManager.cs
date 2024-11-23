@@ -37,7 +37,7 @@ public class LightManager : MonoBehaviour
         }
         if (Keyboard.current[Key.P].wasPressedThisFrame)
         {
-            modeSoleil.PlaySound();
+            modeSoleil.PlaySound(-1);
         }
 
         if (!isBlinking) return;
@@ -55,7 +55,7 @@ public class LightManager : MonoBehaviour
         }
         if (sonActive)
         {
-            modeSoleil.PlaySound();
+            modeSoleil.PlaySound(-1);
             sonActive = false;
         }
     }
