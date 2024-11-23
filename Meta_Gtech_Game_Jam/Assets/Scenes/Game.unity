@@ -3019,7 +3019,7 @@ PrefabInstance:
     - target: {fileID: 3149313172866737517, guid: 43cddc16c35b5c74e8f98219435f25bf,
         type: 3}
       propertyPath: leftRightResistance
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4089624069151788116, guid: 43cddc16c35b5c74e8f98219435f25bf,
         type: 3}
