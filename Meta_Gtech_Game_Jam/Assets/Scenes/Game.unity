@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 82b660520bdecce4daf45d270ec93fe4, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 85a7e1427444f6047bb1180a9efc61fa, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2758,9 +2758,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1057777544}
   trapAIPrefab:
-  - {fileID: 4957825512291673496, guid: 518737435e6326141985eb6e9bd1ff49, type: 3}
   - {fileID: 4043250954716428402, guid: aeedf9427cea55642aab77f4ec9e1ddc, type: 3}
   - {fileID: 1648115564581506818, guid: 6a717e86600246648ae110ebc1b13f10, type: 3}
+  - {fileID: 4957825512291673496, guid: 518737435e6326141985eb6e9bd1ff49, type: 3}
   raycastingDetectionObject: {fileID: 1687457311}
   numberOfTraps: 5
   spawnDistanceToPlayer: 8
@@ -3136,6 +3136,7 @@ MonoBehaviour:
   playerDistance: {fileID: 1057777545}
   sauvegarde: {fileID: 2316168826784976090}
   endScreen: {fileID: 1454654419}
+  aiTrap: {fileID: 1579478559}
   newScoreText: {fileID: 1469602388}
   bestScoreText: {fileID: 2078577946}
 --- !u!114 &1687457311 stripped
@@ -3670,3 +3671,5 @@ SceneRoots:
   - {fileID: 1549547092}
   - {fileID: 220119102}
   - {fileID: 1579478560}
+  - {fileID: 2027277954}
+  - {fileID: 316121539}

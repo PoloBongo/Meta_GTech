@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class TrapAutoDisable : MonoBehaviour
 {
-    void FixedUpdate()
+    void Update()
     {
-        if ((PlayerManager.Instance.GetPlayerMovement().transform.position.x - transform.position.x) > 5f)
+        if (PlayerManager.Instance.isDead) 
+            transform.gameObject.SetActive(false);
+        if (enabled && (PlayerManager.Instance.GetPlayerMovement().transform.position.x - transform.position.x) > 5f)
         {
             transform.gameObject.SetActive(false);
         }

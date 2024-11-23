@@ -10,6 +10,7 @@ public class DeathMananger : MonoBehaviour
     [SerializeField] private PlayerDistance playerDistance;
     [SerializeField] private Sauvegarde sauvegarde;
     [SerializeField] private GameObject endScreen;
+    [SerializeField] private AITrap aiTrap;
     [SerializeField] private TextMeshProUGUI newScoreText;
     [SerializeField] private TextMeshProUGUI bestScoreText;
     Rigidbody rb;
@@ -36,6 +37,7 @@ public class DeathMananger : MonoBehaviour
             }
             newScoreText.text = Mathf.Round(playerDistance.GetDistance()).ToString();
             bestScoreText.text = Mathf.Round(sauvegarde.LoadScore()).ToString();
+            aiTrap.DisableAllGameObjects();
             endScreen.SetActive(true);
         }
     }

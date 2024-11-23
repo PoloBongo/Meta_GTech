@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                gameModeSoleil.SetGlobalSpeed(2);
+                gameModeSoleil.SetGlobalSpeed(1.25f);
             }
             gameModeSoleil.PlaySound(randomFeinte);
         }

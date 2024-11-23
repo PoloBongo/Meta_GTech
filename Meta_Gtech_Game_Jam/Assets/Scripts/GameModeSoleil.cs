@@ -63,7 +63,11 @@ public class GameModeSoleil : MonoBehaviour
         if (soundIndex >= audioClip.Count)
             return;
         Debug.Log(stockRandomFeinte + "gameModeSoleil");
-        if (stockRandomFeinte == soundIndex) return;
+        if (stockRandomFeinte == soundIndex)
+        {
+            soundIndex = 0;
+            return;
+        }
         AudioClip currentClip = audioClip[soundIndex];
         audioSource.clip = currentClip;
         audioSource.pitch = globalSpeed;

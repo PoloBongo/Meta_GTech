@@ -7,7 +7,7 @@ public class AITrap : MonoBehaviour
     [Header("SerializeField Trap")]
     [SerializeField] private GameObject player;
     //[SerializeField] private List<GameObject> trapAIPrefab;
-    [SerializeField] private GameObject trapAIPrefab;
+    [SerializeField] private List<GameObject> trapAIPrefab;
     [SerializeField] private RaycastingDetectionObject raycastingDetectionObject;
     private List<GameObject> trapAIlist1 = new List<GameObject>();
     private List<GameObject> trapAIlist2 = new List<GameObject>();
@@ -145,6 +145,24 @@ public class AITrap : MonoBehaviour
         if (other.gameObject.CompareTag("Trap"))
         {
             rigidbody.AddForce(-transform.forward * impulseForce, ForceMode.Impulse);
+        }
+    }
+
+    public void DisableAllGameObjects()
+    {
+        foreach (var trap in trapAIlist1)
+        {
+            trap.SetActive(false);
+        }
+
+        foreach (var trap in trapAIlist2)
+        {
+            trap.SetActive(false);
+        }
+
+        foreach (var trap in trapAIlist3)
+        {
+            trap.SetActive(false);
         }
     }
 }
